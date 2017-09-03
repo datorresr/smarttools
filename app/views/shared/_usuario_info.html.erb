@@ -1,0 +1,14 @@
+<div id="contenedor">
+
+<div id="lateral">
+<%= link_to gravatar_for(current_user, size: 50), current_user %>
+</div>
+
+<div id="principal">
+<h1><%= current_user.nombre %></h1>
+</div>
+
+</div>
+
+<span><%= link_to "Ver mi perfil", current_user %></span>
+<span><%= pluralize(current_user.concursos.count, "concurso") %></span>

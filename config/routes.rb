@@ -16,6 +16,5 @@ Rails.application.routes.draw do
 #  post   '/ingreso',   to: 'sesiones#create'
   delete '/salida',     to: 'sesiones#destroy'
   resources :usuarios
-  
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :concursos, only: [:create, :destroy] 
 end

@@ -1,17 +1,13 @@
-<% provide(:title, 'registro') %>
-<h1>Registro</h1>
+<% provide(:title, "Editar usuario") %>
+<h1>Actualizar su perfil</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@usuario, url: registro_path) do |f| %>
-
+    <%= form_for(@usuario) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      
+
       <%= f.label :nombre %>
       <%= f.text_field :nombre, class: 'form-control' %>
-
-      <%= f.label :apellido %>
-      <%= f.text_field :apellido, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
@@ -19,11 +15,15 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-
-      <%= f.label :password_confirmation, "Confirmacion" %>
+      <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Crear mi cuenta", class: "btn btn-primary" %>
+      <%= f.submit "Guardas cambios", class: "btn btn-primary" %>
     <% end %>
+
+    <div class="gravatar_edit">
+      <%= gravatar_for @usuario %>
+      <a href="http://gravatar.com/emails">change</a>
+    </div>
   </div>
 </div>

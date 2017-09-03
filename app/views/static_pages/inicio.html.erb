@@ -1,3 +1,25 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="usuario_info">
+        <%= render 'shared/usuario_info' %>
+      </section>
+      <section class="concurso_form">
+        <%= render 'shared/concurso_form' %>
+      </section>
+    </aside>
+
+    <div class="col-md-8">
+     <h3>Mis Concursos</h3>
+     <%= render 'shared/feed' %>
+    </div>
+
+
+
+  </div>
+<% else %>
+
+
 <div class="center jumbotron">
   <h1> Crea Concursos y Promociones en Facebook </h1>
 
@@ -10,3 +32,5 @@
 
 <%= link_to image_tag("SmartTools_Logo.png", alt: "SmartTools logo"),
             'http://192.168.17.128' %>
+
+<% end %>
