@@ -1,7 +1,10 @@
 class UsuariosController < ApplicationController
 
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+
   def show
     @usuario = Usuario.find(params[:id])
+    @concursos = @usuario.concursos.paginate(page: params[:page])
   end
 
 
@@ -27,6 +30,17 @@ class UsuariosController < ApplicationController
   def usuario_params
       params.require(:usuario).permit(:nombre, :apellido, :email, :password, :password_confirmation)
   end
+
+  # Before filters
+
+  # Confirms the correct user.
+  def correct_user
+      @usuario = Usuario.find(params[:id])
+      redirect_to(root_url) unless current_user?(@usuario)
+  end
+
+
+
 end
 
 

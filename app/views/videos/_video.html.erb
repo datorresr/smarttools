@@ -1,0 +1,9 @@
+<li id="video-<%= video.id %>">
+  <span class="concurso"><%= link_to @concurso.nombre, "/sites/"+@concurso.id.to_s %></span>
+  <span class="video"><%= video.mensaje %></span>
+  <%= video_tag video.videopath.url if video.videopath? %>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(video.created_at) %> ago.
+  </span>
+</li>
+

@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902025530) do
+ActiveRecord::Schema.define(version: 20170904222238) do
+
+  create_table "concursos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nombre"
+    t.string "imagen"
+    t.string "url"
+    t.date "fechaInicio"
+    t.date "fechaFin"
+    t.text "descripcion"
+    t.bigint "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["usuario_id", "created_at"], name: "index_concursos_on_usuario_id_and_created_at"
+    t.index ["usuario_id"], name: "index_concursos_on_usuario_id"
+  end
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
@@ -22,4 +36,19 @@ ActiveRecord::Schema.define(version: 20170902025530) do
     t.index ["email"], name: "index_usuarios_on_email", unique: true
   end
 
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nombre"
+    t.string "apellido"
+    t.string "email"
+    t.string "url_video"
+    t.text "mensaje"
+    t.bigint "concurso_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picturepath"
+    t.index ["concurso_id"], name: "index_videos_on_concurso_id"
+  end
+
+  add_foreign_key "concursos", "usuarios"
+  add_foreign_key "videos", "concursos"
 end
