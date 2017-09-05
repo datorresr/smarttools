@@ -1,6 +1,8 @@
 <li id="concurso-<%= concurso.id %>">
   <%= link_to gravatar_for(concurso.usuario, size: 50), concurso.usuario %>
+
   <span class="concurso"><%= link_to concurso.nombre,"/sites/"+concurso.id.to_s %></span>
+
   <span><%= "- Creado por:" %></span>
   <span class="usuario"><%= link_to concurso.usuario.nombre, concurso.usuario %></span>
   <span class="descripcion">
