@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170904222238) do
+=======
+ActiveRecord::Schema.define(version: 20170903034848) do
+>>>>>>> 76412821a99259e32821c3d2033bfb90a87bc0d6
 
   create_table "concursos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
@@ -36,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170904222238) do
     t.index ["email"], name: "index_usuarios_on_email", unique: true
   end
 
+<<<<<<< HEAD
   create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
     t.string "apellido"
@@ -51,4 +56,7 @@ ActiveRecord::Schema.define(version: 20170904222238) do
 
   add_foreign_key "concursos", "usuarios"
   add_foreign_key "videos", "concursos"
+=======
+  add_foreign_key "concursos", "usuarios"
+>>>>>>> 76412821a99259e32821c3d2033bfb90a87bc0d6
 end

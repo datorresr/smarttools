@@ -1,4 +1,5 @@
 class ConcursosController < ApplicationController
+<<<<<<< HEAD
 #  before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
   
@@ -11,6 +12,10 @@ class ConcursosController < ApplicationController
   end
 
 
+=======
+  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
+>>>>>>> 76412821a99259e32821c3d2033bfb90a87bc0d6
   def create
     @concurso = current_user.concursos.build(concurso_params)
     if @concurso.save
