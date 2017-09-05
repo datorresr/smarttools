@@ -1,0 +1,10 @@
+<%= form_for(@video) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :mensaje, placeholder: "Escribe la descripción de tu video" %>
+  </div> 
+  <span class="videopath">
+    <%= f.file_field :videopath %>
+  </span>
+  <%= f.submit "Subir", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,4 @@
+<%= link_to @concurso.nombre, @concurso %>
+<h1><%= @concurso.nombre %></h1>
+<span><%= link_to "Ver Concurso", @concurso %></span>
+<span><%= pluralize(@concurso.videos.count, "video") %></span>

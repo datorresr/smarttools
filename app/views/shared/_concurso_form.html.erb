@@ -1,0 +1,37 @@
+
+    <%= form_for(@concurso) do |f| %>
+ 
+  <%= render 'shared/error_messages', object: f.object %>
+<h6>  
+  <%= f.label :nombre %>
+</h6>
+  <%= f.text_field :nombre, placeholder: "Nombre del Concurso" %>
+<h6>
+  <%= f.label :fecha_Inicio %>
+</h6>
+  <%= f.text_field :fechaInicio, 'data-behaviour' => 'datepicker' , placeholder: "dd/mm/aaaa" %>
+<h6>
+  <%= f.label :fecha_Fin %> 
+</h6>
+  <%= f.text_field :fechaFin, 'data-behaviour' => 'datepicker', placeholder: "dd/mm/aaaa" %>
+
+<h6>
+  <%= f.label :descripcion %>
+</h6>
+
+
+  <div class="field">
+    <%= f.text_area :descripcion, placeholder: "Descripción del concurso" %>
+  </div>
+
+
+  <span class="imagen">
+    <%= f.file_field :imagen %>
+  </span>
+
+  <%= f.submit "Crear Concurso", class: "btn btn-primary" %>
+  
+
+    <% end %>
+
+

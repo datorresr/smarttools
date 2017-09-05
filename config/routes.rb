@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'videos/new'
+
   get 'sesiones/new'
 
 
@@ -15,7 +17,9 @@ Rails.application.routes.draw do
   get    '/ingreso',   to: 'sesiones#new'
 #  post   '/ingreso',   to: 'sesiones#create'
   delete '/salida',     to: 'sesiones#destroy'
+  get    '/sites/:id', to: 'concursos#show'
+  post   '/sites/:id', to: 'concursos#create'
+  resources :videos
   resources :usuarios
-  
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :concursos, only: [:create, :destroy] 
 end

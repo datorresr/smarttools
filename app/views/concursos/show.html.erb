@@ -1,0 +1,21 @@
+<% provide(:title, @concurso.nombre) %>
+<div class="row">
+  <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/concurso_info' %>
+      </section>
+      <section class="video_form">
+        <%= render 'shared/video_form' %>
+      </section>
+  
+  </aside>
+  <div class="col-md-8">
+    <% if @concurso.videos.any? %>
+      <h3>Videos (<%= @concurso.videos.count %>)</h3>
+      <ol class="videos">
+        <%= render @videos %>
+      </ol>
+      <%= will_paginate @videos %>
+    <% end %>
+  </div>
+</div>

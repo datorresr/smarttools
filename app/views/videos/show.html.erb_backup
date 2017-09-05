@@ -1,0 +1,24 @@
+<lu id="concurso-<%= @concurso.id %>">  
+  <%= link_to gravatar_for(@concurso.usuario, size: 50), @concurso.usuario %>
+  <h1><span class="concurso"><%= link_to @concurso.nombre, "/sites/"+@concurso.id.to_s %></span></h1>
+  <h2><span><%= "- Creado por:" %></span>
+  <span class="usuario"><%= link_to @concurso.usuario.nombre, @concurso.usuario %></span>
+  </h2>
+  
+  <span>  <div id="contenedor1">
+    <div id="lateral1">
+      <%= image_tag @concurso.imagen.url if @concurso.imagen? %>
+    </div>
+    <div id="principal1">
+      <%= @concurso.descripcion %>
+    </div>
+  </div>
+  </span>
+  <span class="timestamp">
+    Creado hace <%= time_ago_in_words(@concurso.created_at) %>.
+    <% if current_user?(@concurso.usuario) %>
+      <%= link_to "eliminar", @concurso, method: :delete,
+                                       data: { confirm: "Esta seguro?" } %>
+    <% end %>
+  </span>
+</lu>
