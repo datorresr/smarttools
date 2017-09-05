@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get    '/registro',  to: 'usuarios#new'
   post   '/registro',  to: 'usuarios#create'
   get    '/ingreso',   to: 'sesiones#new'
-#  post   '/ingreso',   to: 'sesiones#create'
   delete '/salida',     to: 'sesiones#destroy'
   get    '/sites/:id', to: 'concursos#show'
   post   '/sites/:id', to: 'concursos#create'
